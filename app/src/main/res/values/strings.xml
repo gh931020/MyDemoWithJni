@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyDemoWithJni</string>
+    <string name="string_variants_minapi23_64_demo">this is minApi23*64Demo!</string>
+</resources>

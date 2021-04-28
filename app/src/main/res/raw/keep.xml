@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    如果您有想要保留或舍弃的特定资源，请在项目中创建一个包含 <resources> 标记的 XML 文件，
+并在 tools:keep 属性中指定每个要保留的资源，在 tools:discard 属性中指定每个要舍弃的资源。
+这两个属性都接受以逗号分隔的资源名称列表。您可以将星号字符用作通配符。-->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@layout/activity_*"
+    tools:discard="@layout/activity_*" />

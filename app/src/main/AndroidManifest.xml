@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    APK 文件只能包含一个 AndroidManifest.xml 文件，但 Android Studio 项目可以包含多个清单文件，
+这些清单文件由主源代码集、构建变体和导入的库提供。因此，在构建应用时，
+Gradle 构建系统会将所有清单文件合并到一个打包在 APK 中的清单文件中。-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mydemowithjni" >
+<!--    包名是可以更改的,不过要与上面的package标签保持一致-->
+
+<!--    package作用                         -->
+<!--    它将此名称用作应用生成的 R.java 类的命名空间。-->
+<!--    示例：对于上面的清单，R 类将为 com.example.mydemowithjni.R。-->
+<!--    它会使用此名称解析清单文件中声明的任何相关类名。-->
+<!--    示例：对于上面的清单，声明为 <activity android:name=".MainActivity"> 的 Activity 将解析为 com.example.mydemowithjni.MainActivity。-->
+
+<!--    尽管清单 package 和 Gradle applicationId 可以具有不同的名称，但构建工具会在构建结束时
+        将应用 ID 复制到 APK 的最终清单文件中。所以，如果您在构建后检查 AndroidManifest.xml 文件，
+        发现 package 属性发生更改就不足为奇了。实际上，Google Play 商店和 Android 平台会查看
+        package 属性来识别您的应用。所以，构建系统利用原始值（设置 R 类的命名空间并解析清单类名称）后,
+        它会舍弃该值并将其替换为应用 ID。-->
+
+
+<!--    android:icon="@mipmap/ic_launcher"-->
+<!--    android:label="@string/app_name"-->
+    <application
+
+        android:allowBackup="true"
+        android:icon="${logo}"
+        android:label="${appName}"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyDemoWithJni">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+<!--                ${applicationId} 占位符中提供应用的应用 ID;-->
+                <action android:name="${applicationId}.TRANSMOGRIFY" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
