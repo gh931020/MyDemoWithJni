@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         // Example of a call to a native method
         findViewById<TextView>(R.id.sample_text).text = stringFromJNI()
-        findViewById<TextView>(R.id.testTv).text = getString(R.string.string_percent, 12)
+//        findViewById<TextView>(R.id.testTv).text = getString(R.string.string_percent, 12)
     }
 
     /**

@@ -1,0 +1,4 @@
+需以原始形式保存的任意文件。如要使用原始 InputStream 打开这些资源，请使用资源 ID（即 R.raw.filename）调用 Resources.openRawResource()。
+
+但是，如需访问原始文件名和文件层次结构，则可以考虑将某些资源保存在 assets/ 目录（而非 res/raw/）下。
+assets/ 中的文件没有资源 ID，因此您只能使用 AssetManager 读取这些文件。
