@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--使用AAPT的内嵌资源格式，在同一XML文件中定义所有的三种资源，-->
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:appt="http://schemas.android.com/aapt">
+
+<!--    XML 标记 <aapt:attr > 告诉 AAPT，该标记的子标记应被视为资源并提取到
+其自己的资源文件中。属性名称中的值用于指定在父标记内使用内嵌资源的位置-->
+
+    <appt:attr name="android:drawable">
+        <vector
+            android:height="64dp"
+            android:width="64dp"
+            android:viewportHeight="600"
+            android:viewportWidth="600">
+            <group
+                android:name="rotationGroup"
+                android:pivotX="300.0"
+                android:pivotY="300.0"
+                android:rotation="45.0">
+                <path
+                    android:fillColor="#000000"
+                    android:pathData="M300,70 l 0,-70 70,70 0,0 -70,70z"/>
+            </group>
+
+        </vector>
+    </appt:attr>
+    <target
+        android:name="rotationGroup">
+        <appt:attr name="android:animation">
+            <objectAnimator
+                android:duration="6000"
+                android:propertyName="rotation"
+                android:valueFrom="0"
+                android:valueTo="360" />
+        </appt:attr>
+    </target>
+</animated-vector>

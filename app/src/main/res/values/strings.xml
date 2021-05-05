@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">MyDemoWithJni</string>
     <string name="string_variants_minapi23_64_demo">this is minApi23*64Demo!</string>
+    <string name="menu_item1">item1</string>
+    <string name="menu_group_item1">group_item1</string>
+    <string name="menu_group_item2">group_item2</string>
+    <string name="menu_submenu_title">submenu_title</string>
+    <string name="menu_submenu_title1">submenu_title1</string>
 </resources>

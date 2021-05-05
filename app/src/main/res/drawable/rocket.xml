@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    <animation-list>  必需。此元素必须是根元素。包含一个或多个 <item> 元素。
+        属性： android:oneshot  布尔值。如果您想要执行一次动画，则为“true”；如果要循环播放动画，则为“false”。
+    <item>
+        单帧动画。必须是 <animation-list> 元素的子元素。
+        属性： android:drawable 可绘制资源。要用于此帧的可绘制对象。
+              android:duration  整数。显示此帧的持续时间，以毫秒为单位。
+-->
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:duration="200" android:drawable="@drawable/anim1"/>
+    <item android:duration="200" android:drawable="@drawable/anim2"/>
+    <item android:duration="200" android:drawable="@drawable/anim3"/>
+    <item android:duration="200" android:drawable="@drawable/anim4"/>
+    <item android:duration="200" android:drawable="@drawable/anim5"/>
+</animation-list>

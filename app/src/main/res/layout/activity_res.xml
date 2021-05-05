@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".OtherMainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/sample_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Hello world!"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/ic_launcher"/>
+        <ImageView
+            android:id="@+id/imageViewAnim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/colorBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ColorBtn"
+            android:textColor="@color/button_text"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/patch9Tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="d这是一段很长很长的问兔子哈哈哈哈哈哈哈哈"
+            android:background="@drawable/nine_patch"
+            android:layout_marginTop="10dp"/>
+        <ImageView
+            android:id="@+id/layerListIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/selectorBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_drawable"
+            android:layout_marginTop="10dp"/>
+        <ImageView
+            android:id="@+id/levelListIv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/level_list"/>
+        <ImageView
+            android:id="@+id/transitionIv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/transition"/>
+        <ImageView
+            android:id="@+id/insertIv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/insert"/>
+
+        <ImageView
+            android:id="@+id/clipIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/clip"/>
+
+        <ImageView
+            android:id="@+id/scaleIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/scale"/>
+        <TextView
+            android:fontFamily="@font/font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="这是一个有shape的textview"
+            android:background="@drawable/shape"/>
+    </LinearLayout>
+</ScrollView>

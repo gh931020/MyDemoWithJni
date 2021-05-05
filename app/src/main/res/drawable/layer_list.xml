@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    <layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:drawable="@[package:]drawable/drawable_resource"
+        定义放于图层可绘制对象中由其属性所定义位置的可绘制对象。必须是 <layer-list> 元素的子项。接受子 <bitmap> 元素。
+        android:id="@[+][package:]id/resource_name"
+        资源 ID。此可绘制对象的唯一资源 ID。要为此项新建资源 ID，请使用以下形式："@+id/name"。加号表示应创建为新 ID。您可以使用此 ID 检索和修改拥有 View.findViewById() 或 Activity.findViewById() 的可绘制对象。
+        android:top="dimension"
+        整型。顶部偏移（像素）。
+        android:right="dimension"
+        android:bottom="dimension"
+        android:left="dimension" />
+        <item>
+            为避免缩放，以下示例使用重力居中的 <bitmap> 元素
+            <bitmap android:src="@drawable/image"
+                    android:gravity="center" />
+        </item>
+</layer-list>
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:src="@drawable/ic_launcher_blue" android:gravity="center"/>
+    </item>
+    <item android:top="10dp" android:start="10dp">
+        <bitmap android:src="@drawable/ic_launcher_red" android:gravity="center"/>
+    </item>
+    <item android:top="20dp" android:start="20dp">
+        <bitmap android:src="@drawable/ic_launcher_yellow" android:gravity="center"/>
+    </item>
+</layer-list>

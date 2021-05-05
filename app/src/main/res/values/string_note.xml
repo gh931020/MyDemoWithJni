@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <string name="string_name">text_string</string>-->
+<!--    您可以使用 getString(int) 或 getText(int) 检索字符串。getText(int) 会保留所有应用于字符串的富文本样式。-->
+
+<!--    <string-array name="string_array_name">
+            <item>text_string1</item> //必须对撇号和引号进行转义
+            <item>text_string2</item>
+            <item>text_string3</item>
+        </string-array>-->
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+    </string-array>
+<!--
+    <plurals name="plural_name">
+    字符串集合，根据事物数量提供其中的一个字符串。包含一个或多个 <item> 元素。
+        <item
+            quantity=["zero" | "one" | "two" | "few" | "many" | "other"]
+            表示应在何时使用该字符串的值
+            zero: 当某种语言要求对数字 0（如阿拉伯语中的 0）进行特殊处理时。
+            one: 当某种语言要求对 1 这类数字（如英语和大多数其他语言中的数字 1；在俄语中，任何末尾为 1 但非 11 的数字均属此类）进行特殊处理时。
+            two: 当某种语言要求对 2 这类数字（如威尔士语中的 2，或斯洛文尼亚语中的 102）进行特殊处理时。
+            few: 当某种语言要求对“小”数字（如捷克语中的 2、3 和 4；或波兰语中末尾为 2、3 或 4，但非 12、13 或 14 的数字）进行特殊处理时。
+            many: 当某种语言要求对“大”数字（如马耳他语中末尾为 11 至 99 的数字）进行特殊处理时。
+            other: 当某种语言未要求对给定数量（如中文中的所有数字，或英语中的 42）进行特殊处理时。
+        >text_string</item>
+    </plurals>
+-->
+    <plurals name="numberOfSongsAvailable">
+        <!--
+             As a developer, you should always supply "one" and "other"
+             strings. Your translators will know which strings are actually
+             needed for their language. Always include %d in "one" because
+             translators will need to use %d for languages where "one"
+             doesn't mean 1 (as explained above).
+          -->
+        <item quantity="one">%d song found.</item>
+        <item quantity="other">%d songs found.</item>
+    </plurals>
+
+<!--  val count = getNumberOfSongsAvailable()
+val songsFound = resources.getQuantityString(R.plurals.numberOfSongsAvailable, count, count)
+对于字符串 %d songs found，第一个 count 参数会选择相应的复数字符串，第二个 count 参数会被插入 %d 占位符内。
+-->
+<!--
+    字符	    转义形式
+    @	        \@
+    ?   	    \?
+    <   	    &lt;
+    &   	    &amp;
+    单引号 (')  以下任意字符：
+                &apos;
+                \'
+                在双引号中包括整个字符串（例如，"This'll work"）
+    双引号 (")	以下任意字符：
+                &quot;
+                \"
+                请注意，您必须转义双引号。在单引号中包括字符串没有任何作用。
+-->
+<!--  设置字符串格式  -->
+    <string name="welcome_messages">hello, %1$s! You have %2$d new messages.</string>
+<!--  格式字符串有两个参数：%1$s 为字符串，而 %2$d 为十进制数字。然后，您可通过调用 getString(int, Object...) 来设置字符串格式
+      var text = getString(R.string.welcome_messages, username, mailCount)
+-->
+<!--  使用Html标记设置样式  -->
+    <string name="welcome">Welcome to <b>Android</b>!</string>
+<!--
+    粗体：<b>、<em>
+    斜体：<i>、<cite>、<dfn>
+    文本放大 25%：<big>
+    文本缩小 20%：<small>
+    设置字体属性：<font face=”font_family“ color=”hex_color”>。可能的字体系列示例包括 monospace、serif 和 sans_serif。
+    设置等宽字体系列：<tt>
+    删除线：<s>、<strike>、<del>
+    下划线：<u>
+    上标：<sup>
+    下标：<sub>
+    列表标记：<ul>、<li>
+    换行符：<br>
+    区隔标记：<div>
+    CSS 样式：<span style=”color|background_color|text-decoration”>
+    段落：<p dir=”rtl | ltr” style=”…”>
+    format(String, Object...) 和 getString(int, Object...) 方法会删除字符串中的所有样式信息
+    解决方法是编写带转义实体的 HTML 标记，并在完成格式设置后通过 fromHtml(String) 恢复这些实体
+-->
+    <string name="welcome_messages_html">Hello, %1$s! You have &lt;b>%2$d new messages&lt;/b>.</string>
+<!--
+    val text: String = getString(R.string.welcome_messages, username, mailCount)
+    val styledText: Spanned = Html.fromHtml(text, FROM_HTML_MODE_LEGACY)
+    由于 fromHtml(String) 方法会设置所有 HTML 实体的格式，因此请务必使用 htmlEncode(String) 转义带格式文本的字符串中任何可能存在的 HTML 字符
+    val escapedUsername: String = TextUtils.htmlEncode(username)
+    val text: String = getString(R.string.welcome_messages, escapedUsername, mailCount)
+    val styledText: Spanned = Html.fromHtml(text, FROM_HTML_MODE_LEGACY)
+-->
+<!--  使用注解设置样式  -->
+<!--
+    您可以通过使用 strings.xml 资源文件中的 Annotation 类和 <annotation> 标记，应用复杂样式或自定义样式。
+    借助注解标记，您可以通过在 XML 文件中定义自定义键值对来标记自定义样式的部分字符串，
+    框架随后会将该 XML 文件转换成 Annotation span。然后，您便可检索这些注解，并使用键和值来应用样式。
+-->
+    <string name="title">Best practices for <annotation font="title_emphasis">text</annotation> on Android</string>
+<!--
+    // get the text as SpannedString so we can get the spans attached to the text
+    val titleText = getText(R.string.title) as SpannedString
+
+    // get all the annotation spans from the text
+    val annotations = titleText.getSpans(0, titleText.length, Annotation::class.java)
+
+    // create a copy of the title text as a SpannableString.
+    // the constructor copies both the text and the spans. so we can add and remove spans
+    val spannableString = SpannableString(titleText)
+
+    // iterate through all the annotation spans
+    for (annotation in annotations) {
+       // look for the span with the key font
+       if (annotation.key == "font") {
+          val fontName = annotation.value
+          // check the value associated to the annotation key
+          if (fontName == "title_emphasis") {
+             // create the typeface
+             val typeface = getFontCompat(R.font.permanent_marker)
+             // set the span at the same indices as the annotation
+             spannableString.setSpan(CustomTypefaceSpan(typeface),
+                titleText.getSpanStart(annotation),
+                titleText.getSpanEnd(annotation),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+          }
+       }
+    }
+    // now, the spannableString contains both the annotation spans and the CustomTypefaceSpan
+    styledText.text = spannableString
+-->
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    <selector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:constantSize=["true" | "false"]
+        如果可绘制对象报告的内部大小在状态变更时保持不变，则值为true，根据当前状态而变化，则值为false
+        android:dither=["true" | "false"]
+        在位图的像素配置与屏幕不同时，启用位图的抖动，值为false则停用抖动
+        android:variablePadding=["true" | "false"] >
+        如果可绘制对象的内边距应根据选择的当前状态而变化，则值为“true”；如果内边距应保持不变（基于所有状态的最大内边距），则值为“false”。启用此功能要求您在状态变更时处理执行布局，这通常不受支持。默认值为 false
+        <item
+            android:drawable="@[package:]drawable/drawable_resource"
+            android:state_pressed=["true" | "false"]
+            按下对象（例如触摸/点按某按钮）
+            android:state_focused=["true" | "false"]
+            具有输入焦点（例如当用户选择文本输入时）
+            android:state_hovered=["true" | "false"]
+            光标悬停，通常，这个可绘制对象可能与用于“聚焦”状态的可绘制对象相同
+            android:state_selected=["true" | "false"]
+            使用定向控件浏览（例如使用方向键浏览列表）的情况下对象为当前用户选择时应使用此项目，则值为“true”；如果在未选择对象时应使用此项目，则值为“false”
+            android:state_checkable=["true" | "false"]
+            可选中时
+            android:state_checked=["true" | "false"]
+            已选中时
+            android:state_enabled=["true" | "false"]
+            启用（能够接收触摸/点击事件）时
+            android:state_activated=["true" | "false"]
+            对象激活作为持续选择（例如，在持续导航视图中“突出显示”之前选中的列表项）
+            使用这个属性，可以将textview做出checkbox的效果
+            android:state_window_focused=["true" | "false"] />
+            当应用窗口有焦点（应用在前台）时
+    </selector>
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/button_press" android:state_pressed="true" />
+    <item android:drawable="@drawable/button_focus" android:state_focused="true" />
+    <item android:drawable="@drawable/button_focus" android:state_hovered="true" />
+    <item android:drawable="@drawable/button_normal" />
+</selector>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    <scale
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/drawable_resource"
+    android:scaleGravity=["top" | "bottom" | "left" | "right" | "center_vertical" |
+                          "fill_vertical" | "center_horizontal" | "fill_horizontal" |
+                          "center" | "fill" | "clip_vertical" | "clip_horizontal"]
+    android:scaleHeight="percentage"
+    android:scaleWidth="percentage" />
+-->
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_launcher_red"
+    android:scaleGravity="center"
+    android:scaleHeight="80%"
+    android:scaleWidth="80%"/>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    <level-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:drawable="@drawable/drawable_resource"
+        引用要插入的可绘制对象资源。
+        android:maxLevel="integer"
+        此项目允许的最高级别。
+        android:minLevel="integer"
+         此项目允许的最低级别。/>
+    </level-list>
+-->
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:maxLevel="0" android:drawable="@drawable/wifi"/>
+    <item android:maxLevel="1" android:drawable="@drawable/wifi_1"/>
+    <item android:maxLevel="2" android:drawable="@drawable/wifi_2"/>
+    <item android:maxLevel="3" android:drawable="@drawable/wifi_3"/>
+</level-list>

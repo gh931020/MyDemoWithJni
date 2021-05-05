@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--    带有扩展名的字体文件（如 .ttf、.otf 或 .ttc），或包含 <font-family> 元素的 XML 文件。如需详细了解作为资源的字体-->
+<!--
+    <font-family>
+      <font
+      定义一个系列内的单个字体。不包含子节点。
+        android:font="@[package:]font/font_to_include"
+        android:fontStyle=["normal" | "italic"]
+        定义字体样式,常量值必须为 normal 或 italic
+        android:fontWeight="weight_value"
+        字体粗细,属性值必须为为 100 的正倍数，并且介于 100 和 900（含）之间。如果您未指定该属性，应用将使用字体标头表格中的值。常规粗细的最常见值为 400，粗体粗细为 700 />
+    </font-family>
+-->
+    <font android:font="@font/digital_regular"
+        android:fontWeight="400"
+        android:fontStyle="normal"/>
+    <font android:fontStyle="italic"
+        android:fontWeight="400"
+        android:font="@font/digital_dream"/>
+</font-family>
+

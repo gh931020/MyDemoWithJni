@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--
+    位图
+    位图文件
+        Android支持.png（首选）, .jpg（可接受）, .gif(不建议)，可通过文件名作为资源id进行引用
+        注意：在构建过程中，aapt工具会自动优化位图文件，对图像进行无损压缩，因此，如果打算以byte流读取图片的话
+        应该将图片放到res/raw文件夹中，避免系统对其进行优化
+    xml位图
+        在xml中定义的资源，指向位图文件，实际上是原始位图文件的别名，xml可以指定位图的其他属性，例如抖动和层叠
+        <bitmap
+            xmlns:android="http://schemas.android.com/apk/res/android"
+                仅当<bitmap>作为根元素的时候使用，嵌套在<item>中的时候不需要
+            android:src="@[package:]drawable/drawable_resource"
+                引用的位图文件
+            android:antialias=["true" | "false"]
+                启用、停用抗锯齿
+            android:dither=["true" | "false"]
+                当位图的像素配置与屏幕不同时，停用、启用位图抖动
+            android:filter=["true" | "false"]
+                启用、停用位图过滤，当位图收缩或拉伸以使其外观平滑时使用过滤
+            android:gravity=["top" | "bottom" | "left" | "right" | "center_vertical" |
+                              "fill_vertical" | "center_horizontal" | "fill_horizontal" |
+                              "center" | "fill" | "clip_vertical" | "clip_horizontal"]
+                定义位图的gravity, 指示当位图小于容器时，res在容器中放置的位置
+            android:mipMap=["true" | "false"]
+
+            android:tileMode=["disabled"
+                                | "clamp"   当着色器绘制范围超出其原边界时复制边缘颜色
+                                | "repeat"  水平和垂直重复着色器的图像
+                                | "mirror"] 水平和重复着色器的图像，交替镜像图像以使相邻图像始终相接/>
+                定义平铺模式，当平铺模式启用时，位图会重复，gravity在tileMode启用时会被忽略
+-->
+    <item>
+        <bitmap android:src="@drawable/ic_launcher_background"
+            android:tileMode="repeat"/>
+    </item>
+</selector>

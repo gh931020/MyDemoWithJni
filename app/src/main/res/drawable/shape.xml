@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    <shape
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape=["rectangle" | "oval" | "line" | "ring"] >
+        rectangle:矩形【默认】， oval：椭圆形， line：线， ring：环形
+        仅当 android:shape="ring" 如下时才使用以下属性：
+            android:innerRadius
+            尺寸。环内部（中间的孔）的半径，以尺寸值或尺寸资源表示。
+            android:innerRadiusRatio
+            浮点型。环内部的半径，以环宽度的比率表示。例如，如果 android:innerRadiusRatio="5"，则内半径等于环宽度除以 5。此值被 android:innerRadius 覆盖。默认值为 9。
+            android:thickness
+            尺寸。环的厚度，以尺寸值或尺寸资源表示。
+            android:thicknessRatio
+            浮点型。环的厚度，表示为环宽度的比率。例如，如果 android:thicknessRatio="2"，则厚度等于环宽度除以 2。此值被 android:innerRadius 覆盖。默认值为 3。
+            android:useLevel
+            布尔值。如果此属性用作 LevelListDrawable，则值为“true”。此属性的值通常应为“false”，否则无法显示形状。
+        <corners
+            圆角，仅当形状为矩形的时候使用
+            android:radius="integer"
+            android:topLeftRadius="integer"
+            android:topRightRadius="integer"
+            android:bottomLeftRadius="integer"
+            android:bottomRightRadius="integer" />
+        <gradient
+            指定形状的渐变颜色
+            android:angle="integer"
+            渐变的角度，0为从左到右，90为从上到下。 必须是45的倍数，默认为0
+            android:centerX="float"
+            渐变中心的相对X轴的位置（0~1.0）
+            android:centerY="float"
+            android:centerColor="integer"
+            起始颜色与结束颜色之间的可选颜色
+            android:endColor="color"
+            结束颜色
+            android:gradientRadius="integer"
+            渐变的半径，尽在type=radial时使用
+            android:startColor="color"
+            起始颜色
+            android:type=["linear" | "radial" | "sweep"]
+            linear线性渐变，  radial径向渐变，起始颜色为中心颜色， sweep：流线型渐变
+            android:useLevel=["true" | "false"] />
+            如果此属性用作 LevelListDrawable，则值为“true”。
+        <padding
+            此drawable设置的内容到drawable的边距
+            android:left="integer"
+            android:top="integer"
+            android:right="integer"
+            android:bottom="integer" />
+        <size
+            形状的大小
+            android:width="integer"
+            android:height="integer" />
+        <solid
+            用于填充形状的颜色
+            android:color="color" />
+        <stroke
+            外边框
+            android:width="integer"
+            android:color="color"
+            android:dashWidth="integer"
+            android:dashGap="integer" />
+    </shape>
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:startColor="#FFFF0000"
+        android:endColor="#80FF00FF"
+        android:angle="45"/>
+    <padding
+        android:left="7dp"
+        android:top="7dp"
+        android:right="7dp"
+        android:bottom="7dp"/>
+    <corners android:radius="8dp"/>
+
+</shape>

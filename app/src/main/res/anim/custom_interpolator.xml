@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--名称要以小写字母开头-->
+<overshootInterpolator  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:tension="7.0" />
+
+<!--
+    <accelerateDecelerateInterpolator>
+        变化率在开始和结束的时候缓慢，但在中间会加快，没有属性
+    <accelerateInterpolator>
+        变化率在开始时较为缓慢，然后会加快，属性： android:factor 浮点数，加速率，默认为1
+    <anticipateInterpolator>
+        先反向变化，然后再急速正向变化， 属性：android:tension  浮点数，要应用的张力（默认为2）
+    <anticipateOvershootInterpolator>
+        先反向变化，在急速正向变化并超过目标值，然后以最终值结束
+        属性：android:tension  浮点数，要应用的张力， android: extraTension 浮点数，张力要乘以的倍数，默认1.5
+    <bounceInterpolator>
+        变化会在结束时退回。 没有属性
+    <cycleInterpolator>
+        按指定的循环次数重复动画，变化率符合正弦曲线图  android:cycles  整数，循环次数，默认1
+    <decelerateInterpolator>
+        变化率开始时很快，然后减慢， 属性： android:factor 浮点数，减速率，默认1
+    <linearInterpolator>
+        变化率恒定不变，没有属性
+    <overshootInterpolator>
+        先急速正向变化，再超过最终值，然后回到最终值，属性   android：tension float， 要应用的张力，默认2
+-->

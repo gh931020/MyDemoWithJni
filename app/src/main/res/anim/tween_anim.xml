@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<set xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:interpolator="@[package:]anim/interpolator_resource"
+设置插值器-->
+<!--    android:shareInterpolator=["true" | "false"] >
+如果要在所有子元素中共用同一插值器，则为true-->
+<!--<alpha 透明度，淡入淡出动画-->
+<!--android:fromAlpha="float" 起始透明度-->
+<!--android:toAlpha="float" /> 目标透明度-->
+<!--<scale 缩放动画-->
+<!--android:fromXScale="float" X方向起始大小-->
+<!--android:toXScale="float" 目标大小-->
+<!--android:fromYScale="float" Y方向起始大小-->
+<!--android:toYScale="float" 目标大小-->
+<!--android:pivotX="float" 在对象缩放时要保持不变的X坐标-->
+<!--android:pivotY="float" />-->
+<!--<translate 垂直或水平移动-->
+<!--android:fromXDelta="float" 浮动数或百分比。起始 X 偏移。表示方式：相对于正常位置的像素数（例如 "5"），相对于元素宽度的百分比（例如 "5%"），或相对于父项宽度的百分比（例如 "5%p"）。-->
+<!--android:toXDelta="float" -->
+<!--android:fromYDelta="float"-->
+<!--android:toYDelta="float" />-->
+<!--<rotate 旋转-->
+<!--android:fromDegrees="float" 起始角度位置-->
+<!--android:toDegrees="float" 结束角度位置-->
+<!--android:pivotX="float" 旋转的中心坐标X值-->
+<!--android:pivotY="float" 表示方式：相对于对象左边缘的像素数（例如 "5"），相对于对象左边缘的百分比（例如 "5%"），或相对于父级容器左边缘的百分比（例如 "5%p"）/>-->
+<!--<set>-->
+<!--...-->
+<!--</set>-->
+<!--    </set>-->
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+</set>

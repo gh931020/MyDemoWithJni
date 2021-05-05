@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+每个可绘制对象由单个 <transition> 元素内的 <item> 元素表示。不支持超过两个项目。
+如要向前转换，请调用 startTransition()。如要向后转换，则调用 reverseTransition()。
+    <transition
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:drawable="@[package:]drawable/drawable_resource"
+        定义要用作可绘制对象转换一部分的可绘制对象。必须是 <transition> 元素的子项。接受子 <bitmap> 元素。
+        android:id="@[+][package:]id/resource_name"
+        android:top="dimension"
+        顶部偏移（像素）
+        android:right="dimension"
+        android:bottom="dimension"
+        android:left="dimension" />
+    </transition>
+-->
+<transition xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/fy_checkbox"/>
+    <item android:drawable="@drawable/fy_checkbox_click"/>
+</transition>

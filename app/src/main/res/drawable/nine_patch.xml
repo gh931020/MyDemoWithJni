@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    <nine-patch
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:src="@[package:]drawable/drawable_resource"
+        android:dither=["true" | "false"] />
+        布尔值。当位图的像素配置与屏幕不同时（例如：ARGB 8888 位图和 RGB 565 屏幕），
+        启用或停用位图抖动。
+-->
+<nine-patch xmlns:android="http://schemas.android.com/apk/res/android"
+    android:dither="false"
+    android:src="@drawable/chat_bg" />

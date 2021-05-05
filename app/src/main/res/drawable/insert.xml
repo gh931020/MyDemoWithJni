@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    A drawable defined in XML that insets another drawable by a specified distance.
+    This is useful when a View needs a background that is smaller than the View's actual bounds.
+    <inset
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:drawable="@drawable/drawable_resource"
+        android:insetTop="dimension"
+        顶部插入，as a dimension value or dimension resource
+        android:insetRight="dimension"
+        android:insetBottom="dimension"
+        android:insetLeft="dimension" />
+-->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_launcher_background"
+    android:insetTop="10dp"
+    android:insetLeft="10dp"/>

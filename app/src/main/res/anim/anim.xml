@@ -1,1 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--用于定义渐变动画的 XML 文件。（属性动画也可保存在此目录中，但为了区分这两种类型，属性动画首选 animator/ 目录。）-->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="together" >
+
+<!--    android:ordering=["together" | "sequentially"]>
+指定播放set中动画的顺序， together：同时播放， sequentially ；按顺序播放-->
+<!--    <objectAnimator
+在特定的一段时间内，为对象的特定属性创建动画
+字符串。必需。要添加动画的对象属性，通过其名称引用。例如，您可以为 View 对象指定 "alpha"
+或 "backgroundColor"。 但是，objectAnimator 元素不包含 target 属性，
+因此您无法在 XML 声明中设置要添加动画的对象。您必须通过调用 loadAnimator()
+来扩充您的动画 XML 资源，然后调用 setTarget() 来设置包含此属性的目标对象。-->
+
+<!--        android:propertyName="string"-->
+<!--        android:duration="int"-->
+<!--        android:valueFrom="float | int | color"-->
+<!--        android:valueTo="float | int | color"-->
+<!--        android:startOffset="int"-->
+<!--        android:repeatCount="int"-->
+<!--        android:repeatMode=["repeat" | "reverse"]-->
+<!--        android:valueType=["intType" | "floatType"]/>-->
+
+<!--    <animator
+在指定的时间段内执行动画-->
+<!--        android:duration="int"-->
+<!--        android:valueFrom="float | int | color"-->
+<!--        android:valueTo="float | int | color"-->
+<!--        android:startOffset="int"-->
+<!--        android:repeatCount="int"-->
+<!--        android:repeatMode=["repeat" | "reverse"]-->
+<!--    android:valueType=["intType" | "floatType"]/>-->
+
+
+
+</set>

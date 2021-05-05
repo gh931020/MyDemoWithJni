@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    <ViewGroup
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@[+][package:]id/resource_name"
+        android:layout_height=["dimension" | "match_parent" | "wrap_content"]
+        android:layout_width=["dimension" | "match_parent" | "wrap_content"]
+        [ViewGroup-specific attributes] >
+        <View
+            android:id="@[+][package:]id/resource_name"
+            android:layout_height=["dimension" | "match_parent" | "wrap_content"]
+            android:layout_width=["dimension" | "match_parent" | "wrap_content"]
+            [View-specific attributes] >
+            <requestFocus/>
+            任何代表 View 对象的元素都可以包含这个空元素，它会在屏幕上为其父项提供初始焦点。每个文件只能包含一个这种元素。
+
+        </View>
+        <ViewGroup >
+            <View />
+        </ViewGroup>
+        <include layout="@layout/layout_resource"/>
+        您可以在 <include> 中添加所含布局中的根元素所支持的任何其他布局属性，
+        它们将替换根元素中定义的相应属性。
+    </ViewGroup>
+    根元素可以是 ViewGroup、View 或 <merge> 元素，但只能有一个根元素，
+    并且它必须包含带有 android 命名空间的 xmlns:android 属性
+
+
+-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</androidx.constraintlayout.widget.ConstraintLayout>
