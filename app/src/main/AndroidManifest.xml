@@ -1,119 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mydemowithjni">
-<!--声明用户权限，所有的权限都必须要在这里声明，6.0后，隐私权限还需要在代码中动态申请-->
-    <uses-permission android:name="android.permission.INTERNET"/>
-<!--  声明设备兼容性  -->
-    <uses-feature android:required="true" android:name="android.hardware.sensor.compass"/>
-<!--<application> 元素必须是 <manifest> 元素内的最后一个元素。-->
+    <!-- 声明用户权限，所有的权限都必须要在这里声明，6.0后，隐私权限还需要在代码中动态申请 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 声明设备兼容性 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.sensor.compass"
+        android:required="true" />
+
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="${logo}"
         android:label="${appName}"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyDemoWithJni">
-
+        <activity android:name=".activity.FragmentActivity"></activity>
+        <activity android:name=".activity.TaskActivity" />
+        <activity android:name=".activity.StartForResultActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <!-- ${applicationId} 占位符中提供应用的应用 ID; -->
                 <action android:name="${applicationId}.TRANSMOGRIFY" />
                 <!-- 自定义ACTION -->
-                <action android:name="com.example.mydemowithjni.ACTION"/>
+                <action android:name="com.example.mydemowithjni.ACTION" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResActivity" />
+        <activity android:name=".res.ResActivity" />
+        <activity android:name=".activity.LearnActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.StartActivity" />
     </application>
 
 </manifest>
-<!--
-    <activity
-          android:allowEmbedded=["true" | "false"]
-            表示该Activity可以作为其他Activity的嵌入式子项启动。适用于子项位于其他Activity所拥有的容器中的情况。默认false
-          android:allowTaskReparenting=["true" | "false"]
-            例如，如果电子邮件消息包含网页链接，则点击该链接会调出可显示该网页的 Activity。
-            该 Activity 由浏览器应用定义，但作为电子邮件任务的一部分启动。如果将该 Activity 的父项更改为浏览器任务，
-            则它会在浏览器下一次转至前台时显示，在电子邮件任务再次转至前台时消失。
-          android:alwaysRetainTaskState=["true" | "false"]
-            系统是否始终保持 Activity 所在任务的状态 —“true”表示是，“false”表示允许系统在特定情况下将任务重置到其初始状态。
-            默认值为“false”。该属性只对任务的根 Activity 有意义；所有其他 Activity 均可忽略该属性。
-            正常情况下，当用户从主屏幕重新选择某个任务时，系统会在特定情况下清除该任务（从根 Activity 上的堆栈中移除所有 Activity）。
-            通常，如果用户在一段时间（如 30 分钟）内未访问任务，系统会执行此操作。
-          android:autoRemoveFromRecents=["true" | "false"]
-            Whether or not the state of the task that the activity is in will always be maintained by the system —
-            "true" if it will be, and "false" if the system is allowed to reset the task to its initial state in certain situations.
-            The default value is "false".
-            This attribute is meaningful only for the root activity of a task; it's ignored for all other activities.
-          android:banner="drawable resource"
-            一种为其关联项提供扩展图形化横幅的可绘制资源。可与 <activity> 标记联用，为特定 Activity 提供默认横幅；
-            也可与 <application> 标记联用，为所有应用 Activity 提供横幅。
-          android:clearTaskOnLaunch=["true" | "false"]
-            每当从主屏幕重新启动任务时，是否都从该任务中移除根 Activity 之外的所有 Activity
-             —“true”表示始终将任务清除至只剩其根 Activity；“false”表示不清除。默认值为“false”。
-             该属性只对启动新任务的 Activity（根 Activity）有意义；任务中的所有其他 Activity 均可忽略该属性。
-             例如，假设用户从主屏幕启动 Activity P，然后从该处转到 Activity Q。接着，该用户按下主屏幕按钮，然后返回到 Activity P。
-             正常情况下，用户将看到 Activity Q，因为这是其最后在 P 的任务中所执行的 Activity。
-             不过，如果 P 将此标志设置为“true”，则当用户按下主屏幕将任务转入后台时，系统会移除 P 上方的所有 Activity（在本例中为 Q）。
-             因此用户在返回任务时只会看到 P。
-          android:colorMode=[ "hdr" | "wideColorGamut"]
-
-          android:configChanges=["mcc", "mnc", "locale",
-                                 "touchscreen", "keyboard", "keyboardHidden",
-                                 "navigation", "screenLayout", "fontScale",
-                                 "uiMode", "orientation", "density",
-                                 "screenSize", "smallestScreenSize"]
-          android:directBootAware=["true" | "false"]
-          android:documentLaunchMode=["intoExisting" | "always" |
-                                  "none" | "never"]
-          android:enabled=["true" | "false"]
-          android:excludeFromRecents=["true" | "false"]
-          android:exported=["true" | "false"]
-          android:finishOnTaskLaunch=["true" | "false"]
-          android:hardwareAccelerated=["true" | "false"]
-          android:icon="drawable resource"
-          android:immersive=["true" | "false"]
-          android:label="string resource"
-          android:launchMode=["standard" | "singleTop" |
-                              "singleTask" | "singleInstance"]
-          android:lockTaskMode=["normal" | "never" |
-                              "if_whitelisted" | "always"]
-          android:maxRecents="integer"
-          android:maxAspectRatio="float"
-          android:multiprocess=["true" | "false"]
-          android:name="string"
-          android:noHistory=["true" | "false"]
-          android:parentActivityName="string"
-          android:persistableMode=["persistRootOnly" |
-                                   "persistAcrossReboots" | "persistNever"]
-          android:permission="string"
-          android:process="string"
-          android:relinquishTaskIdentity=["true" | "false"]
-          android:resizeableActivity=["true" | "false"]
-          android:screenOrientation=["unspecified" | "behind" |
-                                     "landscape" | "portrait" |
-                                     "reverseLandscape" | "reversePortrait" |
-                                     "sensorLandscape" | "sensorPortrait" |
-                                     "userLandscape" | "userPortrait" |
-                                     "sensor" | "fullSensor" | "nosensor" |
-                                     "user" | "fullUser" | "locked"]
-          android:showForAllUsers=["true" | "false"]
-          android:stateNotNeeded=["true" | "false"]
-          android:supportsPictureInPicture=["true" | "false"]
-          android:taskAffinity="string"
-          android:theme="resource or theme"
-          android:uiOptions=["none" | "splitActionBarWhenNarrow"]
-          android:windowSoftInputMode=["stateUnspecified",
-                                       "stateUnchanged", "stateHidden",
-                                       "stateAlwaysHidden", "stateVisible",
-                                       "stateAlwaysVisible", "adjustUnspecified",
-                                       "adjustResize", "adjustPan"] >
-    <intent-filter>
-    <meta-data>
-    <layout>
-</activity>
-
--->

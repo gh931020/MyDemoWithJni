@@ -1,21 +1,19 @@
 package com.example.mydemowithjni
 
-import android.animation.Animator
-import android.animation.AnimatorInflater
-import android.annotation.SuppressLint
-import android.graphics.drawable.Animatable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.animation.AnimationSet
-import android.view.animation.AnimationUtils
 import android.widget.TextView
 import android.widget.Toast
+import com.example.mydemowithjni.activity.FragmentActivity
+import com.example.mydemowithjni.activity.LearnActivity
+import com.example.mydemowithjni.res.ResActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
+    override fun restroeState(savedInstanceState: Bundle?) {
+
+    }
 
     override fun initData() {
         // Example of a call to a native method
@@ -27,6 +25,12 @@ class MainActivity : BaseActivity() {
     override fun setListener() {
         resBtn.setOnClickListener {
             ResActivity.start(this@MainActivity)
+        }
+        activityBtn.setOnClickListener {
+            LearnActivity.start(this@MainActivity)
+        }
+        fragmentBtn.setOnClickListener {
+            FragmentActivity.start(this@MainActivity)
         }
     }
 

@@ -23,7 +23,20 @@
             android:id="@+id/resBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="应用资源"
+            android:text="@string/btn_res"
+            android:textAllCaps="false" />
+        <Button
+            android:id="@+id/activityBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_activity"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/fragmentBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_fragment"
             android:textAllCaps="false" />
     </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.example.mydemowithjni
+package com.example.mydemowithjni.res
 
 import android.animation.Animator
 import android.animation.AnimatorInflater
@@ -8,7 +8,10 @@ import android.content.Intent
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.ClipDrawable
 import android.graphics.drawable.TransitionDrawable
+import android.os.Bundle
 import android.view.animation.AnimationUtils
+import com.example.mydemowithjni.BaseActivity
+import com.example.mydemowithjni.R
 import kotlinx.android.synthetic.main.activity_res.*
 
 class ResActivity: BaseActivity() {
@@ -21,16 +24,24 @@ class ResActivity: BaseActivity() {
         }
     }
 
+    override fun restroeState(savedInstanceState: Bundle?) {
+
+    }
+
     @SuppressLint("ResourceType")
     override fun initData() {
         //使用属性动画
-        val set: Animator? = AnimatorInflater.loadAnimator(this, R.anim.property_animator)
+        val set: Animator? = AnimatorInflater.loadAnimator(this,
+            R.anim.property_animator
+        )
             .apply {
                 setTarget(sample_text)
                 start()
             }
         // 设置Tween Animator
-        val hyperspace_jump = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump)
+        val hyperspace_jump = AnimationUtils.loadAnimation(this,
+            R.anim.hyperspace_jump
+        )
         imageView.startAnimation(hyperspace_jump)
         // 设置帧动画
         imageViewAnim.setBackgroundResource(R.drawable.rocket)
@@ -64,7 +75,8 @@ class ResActivity: BaseActivity() {
 
     }
 
-    override fun getLayoutId(): Int =R.layout.activity_res
+    override fun getLayoutId(): Int =
+        R.layout.activity_res
 
     override fun setListener() {
     }
