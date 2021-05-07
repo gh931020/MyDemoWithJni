@@ -8,8 +8,43 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tabRg"
+        app:layout_constraintVertical_weight="1">
+
+    </androidx.fragment.app.FragmentContainerView>
 <!--        静态指定fragment-->
 <!--        android:name="com.example.mydemowithjni.fragment.ExampleFragment"/>-->
 <!--    The android:name attribute specifies the class name of the Fragment to instantiate.-->
+    <RadioGroup
+        android:id="@+id/tabRg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/fragContainer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <RadioButton
+            android:id="@+id/frag1Rbtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:checked="true"
+            android:background="@drawable/selector_bg_rbtn"
+            android:text="Fragment1"/>
+        <RadioButton
+            android:id="@+id/frag2Rbtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:background="@drawable/selector_bg_rbtn"
+            android:text="Fragment2"/>
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

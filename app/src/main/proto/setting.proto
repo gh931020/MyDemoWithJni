@@ -1,0 +1,9 @@
+
+syntax = "proto3";
+
+option java_package = "com.example.mydemowithjni.proto";
+option java_multiple_files = true;
+
+message MySettings {
+  int32 example_counter = 1;
+}

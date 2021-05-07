@@ -5,20 +5,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#BF5454"
+    android:background="#6CF571"
     tools:context=".fragment.ExampleFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I'm Fragment1" />
+        android:text="I'm Fragment2" />
     <ImageView
         android:id="@+id/anim1Iv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/anim1"
-        android:layout_marginTop="20dp"
         android:transitionName="anim1_iv"/>
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.mydemowithjni
 
 import android.app.Application
+import androidx.startup.AppInitializer
 import com.elvishew.xlog.LogConfiguration
 import com.elvishew.xlog.LogLevel
 import com.elvishew.xlog.XLog
@@ -9,12 +10,15 @@ import com.elvishew.xlog.printer.Printer
 import com.elvishew.xlog.printer.file.FilePrinter
 import com.elvishew.xlog.printer.file.clean.FileLastModifiedCleanStrategy
 import com.elvishew.xlog.printer.file.naming.DateFileNameGenerator
+import com.example.mydemowithjni.initializer.WorkManagerInitializer
 import com.example.mydemowithjni.util.Constants
 const val MAX_TIME = 1000 * 60 * 60 * 24 * 30L
 class MyApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        // 也可以通过在manifest中注册provider进行初始化
+        // AppInitializer.getInstance(this).initializeComponent(WorkManagerInitializer::class.java)
         initXLog()
     }
 

@@ -7,6 +7,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'com.google.protobuf'
 }
 import com.android.build.OutputFile
 /**
@@ -404,6 +405,34 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    // 开启viewBinding视图绑定
+    viewBinding {
+        enabled = true
+    }
+}
+
+//编写编译任务，调用plugin编译生成java文件
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.0.0'//编译器版本
+    }
+    plugins {
+        javalite {
+            artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'//指定当前工程使用的protobuf版本为javalite版，以生成javalite版的java类
+        }
+    }
+
+    generateProtoTasks.generatedFilesBaseDir = "$projectDir/src/main/java" //指定编译生成java类的存放位置
+
+    generateProtoTasks {
+        all().each { task ->
+            task.plugins {
+                javalite {
+                    outputSubDir = '' //指定存放位置的二级目录，这里未指定
+                }
+            }
+        }
+    }
 }
 
 /**
@@ -420,7 +449,7 @@ dependencies {
     // Dependency on local binaries,
     // implementation files('libs/foo.jar', 'libs/bar.jar')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.ext.kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     print("kotlin_version $rootProject.ext.kotlin_version")
 
@@ -437,6 +466,33 @@ dependencies {
     implementation "androidx.fragment:fragment:$fragment_version"
     // Kotlin
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
+
+    // To use Jetpack Startup in  library or app,
+    implementation "androidx.startup:startup-runtime:1.0.0"
+
+    def work_version = "2.5.0"
+
+    // (Java only)
+    implementation "androidx.work:work-runtime:$work_version"
+
+    // Kotlin + coroutines
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+
+    // optional - RxJava2 support
+    implementation "androidx.work:work-rxjava2:$work_version"
+
+    // optional - GCMNetworkManager support
+    implementation "androidx.work:work-gcm:$work_version"
+
+    // optional - Test helpers
+    androidTestImplementation "androidx.work:work-testing:$work_version"
+
+    // 如果是用的kotlin 直接用这个好了
+    implementation "androidx.datastore:datastore:1.0.0-alpha08"
+    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha08"
+    //依赖protobuf-lite库
+    implementation 'com.google.protobuf:protobuf-lite:3.0.0'
+
 
     //https://github.com/elvishew/xLog
     implementation 'com.elvishew:xlog:1.9.0'

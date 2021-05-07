@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mydemowithjni">
     <!-- 声明用户权限，所有的权限都必须要在这里声明，6.0后，隐私权限还需要在代码中动态申请 -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 声明设备兼容性 -->
@@ -18,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyDemoWithJni">
-        <activity android:name=".activity.FragmentActivity"></activity>
+        <activity android:name=".activity.FragmentActivity"/>
         <activity android:name=".activity.TaskActivity" />
         <activity android:name=".activity.StartForResultActivity" />
         <activity android:name=".MainActivity">
@@ -31,6 +32,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+<!--            <meta-data android:name="android.app.shortcuts"-->
+<!--                android:resource="@xml/shortcuts" />-->
         </activity>
         <activity android:name=".res.ResActivity" />
         <activity android:name=".activity.LearnActivity">
@@ -38,11 +42,37 @@
                 <action android:name="android.intent.action.SEND" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-
+<!--                可以相应数据类型为text/plain和image/*的数据-->
                 <data android:mimeType="text/plain" />
+                <data android:mimeType="image/*"/>
             </intent-filter>
         </activity>
         <activity android:name=".activity.StartActivity" />
+        <activity android:name=".widget.ExampleAppWidgetConfigure" >
+            <intent-filter>
+                <action android:name="android.apwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".widget.ExampleWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/example_appwidget_info"/>
+        </receiver>
+<!-- 此处添加后,应用启动会自动初始化metadata中声明的库,也可以在Application中通过代码初始化-->
+        <provider
+            android:authorities="${applicationId}.androidx-startup"
+            android:name="androidx.startup.InitializationProvider"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data android:name="com.example.mydemowithjni.initializer.WorkManagerInitializer"
+                android:value="androidx.startup"/>
+<!--            tools:node="remove" 可用于在应用运行的时候去除当前标签-->
+        </provider>
+
     </application>
 
 </manifest>

@@ -26,4 +26,6 @@
     <dimen name="textview_width">150dp</dimen>
     <dimen name="ball_radius">30dp</dimen>
     <dimen name="font_size">16sp</dimen>
+
+    <dimen name="widget_margin">8dp</dimen>
 </resources>

@@ -3,6 +3,7 @@ package com.example.mydemowithjni.activity
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import com.elvishew.xlog.XLog
 import com.example.mydemowithjni.BaseActivity
@@ -32,6 +33,17 @@ class LearnActivity: BaseActivity() {
     }
 
     override fun initData() {
+        // 处理隐式Intent传递过来的数据
+
+        val data: Uri? = intent?.data
+
+        // Figure out what to do based on the intent type
+        if (intent?.type?.startsWith("image/") == true) {
+            // Handle intents with image data ...
+        } else if (intent?.type == "text/plain") {
+            // Handle intents with text ...
+        }
+
         //隐式启动Activity
         val sendIntent = Intent().apply {
             action = Intent.ACTION_SEND

@@ -38,6 +38,12 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_fragment"
             android:textAllCaps="false" />
+        <Button
+            android:id="@+id/dataStoreBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DataStore应用"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 

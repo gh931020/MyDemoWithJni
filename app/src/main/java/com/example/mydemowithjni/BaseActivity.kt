@@ -19,11 +19,11 @@ abstract class BaseActivity: AppCompatActivity() {
 
     abstract fun restroeState(savedInstanceState: Bundle?)
 
-    abstract fun initData()
-
     abstract fun getLayoutId(): Int
 
     abstract fun setListener()
+
+    abstract fun initData()
 
     override fun onStart() {
         super.onStart()
