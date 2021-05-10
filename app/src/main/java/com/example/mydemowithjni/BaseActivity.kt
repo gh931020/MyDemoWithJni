@@ -3,23 +3,25 @@ package com.example.mydemowithjni
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 import com.elvishew.xlog.XLog
 
-abstract class BaseActivity: AppCompatActivity() {
-
+abstract class BaseActivity<T: ViewBinding>: AppCompatActivity() {
+    lateinit var viewBinding: T
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         restroeState(savedInstanceState)
         XLog.i("onCreat()")
         // 您必须在此处调用 setContentView() 来定义 Activity 界面的布局
-        setContentView(getLayoutId())
+        viewBinding = initViewBinding()
+        setContentView(viewBinding.root)
         setListener()
         initData()
     }
 
-    abstract fun restroeState(savedInstanceState: Bundle?)
+    abstract fun initViewBinding(): T
 
-    abstract fun getLayoutId(): Int
+    abstract fun restroeState(savedInstanceState: Bundle?)
 
     abstract fun setListener()
 

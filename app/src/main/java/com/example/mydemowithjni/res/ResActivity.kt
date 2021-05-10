@@ -12,9 +12,9 @@ import android.os.Bundle
 import android.view.animation.AnimationUtils
 import com.example.mydemowithjni.BaseActivity
 import com.example.mydemowithjni.R
-import kotlinx.android.synthetic.main.activity_res.*
+import com.example.mydemowithjni.databinding.ActivityResBinding
 
-class ResActivity: BaseActivity() {
+class ResActivity: BaseActivity<ActivityResBinding>() {
 
     companion object{
         @JvmStatic
@@ -35,17 +35,17 @@ class ResActivity: BaseActivity() {
             R.anim.property_animator
         )
             .apply {
-                setTarget(sample_text)
+                setTarget(viewBinding.sampleText)
                 start()
             }
         // 设置Tween Animator
         val hyperspace_jump = AnimationUtils.loadAnimation(this,
             R.anim.hyperspace_jump
         )
-        imageView.startAnimation(hyperspace_jump)
+        viewBinding.imageView.startAnimation(hyperspace_jump)
         // 设置帧动画
-        imageViewAnim.setBackgroundResource(R.drawable.rocket)
-        val background = imageViewAnim.background
+        viewBinding.imageViewAnim.setBackgroundResource(R.drawable.rocket)
+        val background = viewBinding.imageViewAnim.background
         if (background is Animatable){
             background.start()
         }
@@ -54,20 +54,20 @@ class ResActivity: BaseActivity() {
             while (true){
                 Thread.sleep(1000)
                 runOnUiThread {
-                    levelListIv.setImageLevel(level%4)
+                    viewBinding.levelListIv.setImageLevel(level%4)
                     level+=1
                 }
             }
         }).start()
 
-        val drawable = transitionIv.drawable
+        val drawable = viewBinding.transitionIv.drawable
         if (drawable is TransitionDrawable){
             drawable.startTransition(500)
         }
 
         //默认级别为 0，即完全裁剪，使图像不可见。当级别为 10,000 时，图像不会裁剪，而是完全可见。
         //注意background和src的区别
-        val clipBackground = clipIv.background
+        val clipBackground = viewBinding.clipIv.background
         if (clipBackground is ClipDrawable){
             clipBackground.level = clipBackground.level + 7000
         }
@@ -75,8 +75,7 @@ class ResActivity: BaseActivity() {
 
     }
 
-    override fun getLayoutId(): Int =
-        R.layout.activity_res
+    override fun initViewBinding(): ActivityResBinding = ActivityResBinding.inflate(layoutInflater)
 
     override fun setListener() {
     }

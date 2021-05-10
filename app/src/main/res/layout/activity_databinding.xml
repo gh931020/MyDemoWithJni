@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--自定义绑定类名称
+        调整 data 元素的 class 特性，绑定类可重命名或放置在不同的包中
+        <data class="ContactItem">
+        在类名前添加句点和前缀，从而在其他文件包中生成绑定类
+        <data class=".ContactItem">
+        使用完整软件包名称来生成绑定类。
+        <data class="com.example.ContactItem">
+    -->
+    <data class=".MyDataBindingSample">
+        <!--    导入要使用的类    -->
+        <import type="android.view.View" />
+        <!--当类名有冲突时，其中一个类可使用别名重命名。-->
+        <!--<import-->
+        <!--    type="com.example.mydemowithjni.databinding.View"-->
+        <!--    alias="MyCoustomView" />-->
+        <!--    使用name需要在Activity中进行绑定binding.user = User()    -->
+        <!--在表达式中引用静态字段和方法时，也可以使用导入的类型-->
+        <!--包含
+            通过使用应用命名空间和特性中的变量名称，变量可以从包含的布局传递到被包含布局的绑定。
+            以下示例展示了来自 name.xml 和 contact.xml 布局文件的被包含 user 变量：-->
+        <variable
+            name="user"
+            type="com.example.mydemowithjni.databinding.User" />
+
+        <variable
+            name="handler"
+            type="com.example.mydemowithjni.databinding.MyHandler" />
+
+        <!--<import type="android.util.SparseArray" />-->
+
+        <!--<import type="java.util.Map" />-->
+
+        <!--<import type="java.util.List" />-->
+        <!--&lt;!&ndash;&ndash;&gt;-->
+        <!--<variable-->
+        <!--    name="list"-->
+        <!--    type="List&lt;String>" />-->
+
+        <!--<variable-->
+        <!--    name="sparse"-->
+        <!--    type="SparseArray&lt;String>" />-->
+
+        <!--<variable-->
+        <!--    name="map"-->
+        <!--    type="Map&lt;String, String>" />-->
+
+        <!--<variable-->
+        <!--    name="index"-->
+        <!--    type="int" />-->
+
+        <!--<variable-->
+        <!--    name="key"-->
+        <!--    type="String" />-->
+        <!--
+              使用[]运算符访问常见集合,数组/列表/系数列表
+              android:text="@{list[index]}"
+              android:text="@{sparse[index]}"
+              android:text="@{map[key]}"
+                @{map[key]} 可替换为 @{map.key}
+           字符串字面量
+              可以使用单引号括住特性值，这样就可以在表达式中使用双引号          android:text='@{map["firstName"]}'
+              也可以使用双引号括住特性值,使用反单引号 ` 将字符串字面量括起来     android:text="@{map[`firstName`]}"
+           资源引用
+           android:padding="@{large? @dimen/largePadding : @dimen/smallPadding}"
+           You can evaluate format strings and plurals by providing parameters:
+                android:text="@{@string/nameFormat(firstName, lastName)}"
+                android:text="@{@plurals/banana(bananaCount)}"
+           You can pass property references and view references as resource parameters:
+                android:text="@{@string/example_resource(user.lastName, exampleText.text)}"
+
+           事件处理
+
+        -->
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/sampleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sample"
+            android:textSize="23sp"
+            app:layout_constraintBottom_toTopOf="@id/userNameTv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/userNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{user.firstName}"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            android:visibility="@{user.lastName.length() == 0 ? View.GONE: View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sampleTv"
+            tools:text="zhang" />
+        <!--    ?? Null合并运算符, 如果左边运算数不是null, 则选择左边,否则选择右边   -->
+        <TextView
+            android:id="@+id/lastNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{user.lastName ?? user.firstName}"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userNameTv"
+            tools:text="long" />
+        <!--视图引用: 表达式可以通过id医用布局中的其他view-->
+        <TextView
+            android:id="@+id/idReferenceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{sampleTv.text}"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lastNameTv" />
+        <!--将点击事件交给指定的方法进行处理[方法引用]
+        表达式中的方法签名必须与监听器对象中的方法签名完全一致。-->
+        <Button
+            android:id="@+id/clickReferenceBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="@{handler::onClickHandler}"
+            android:text="方法引用"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/idReferenceTv" />
+
+        <!--返回值必须与监听器的预期返回值相匹配（预期返回值无效除外）
+            android:onClick="@{(view) -> presenter.onSaveClick(task)}"
+            如果您想在表达式中使用参数:
+            fun onSaveClick(view: View, task: Task){}
+            android:onClick="@{(theView) -> presenter.onSaveClick(theView, task)}"
+
+            可以在 lambda 表达式中使用多个参数：
+            fun onCompletedChanged(task: Task, completed: Boolean){}
+            android:onCheckedChanged="@{(cb, isChecked) -> presenter.completeChanged(task, isChecked)}"
+
+            如果您监听的事件返回类型不是 void 的值，则您的表达式也必须返回相同类型的值。
+            例如，如果要监听长按事件，表达式应返回一个布尔值。
+            如果由于 null 对象而无法对表达式求值，则数据绑定将返回该类型的默认值。
+            例如，引用类型返回 null，int 返回 0，boolean 返回 false
+            android:onClick="@{(v) -> v.isVisible() ? doSomething() : void}"
+        -->
+        <Button
+            android:id="@+id/clickBindBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="@{()->handler.onClickBindHandler(user)}"
+            android:onLongClick="@{(theView)->handler.onLongClick(theView, user)}"
+            android:text="监听器绑定"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clickReferenceBtn" />
+
+        <CheckBox
+            android:id="@+id/multiParmCb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onCheckedChanged="@{(cb, isChecked) -> handler.onCompletedChanged(user, isChecked)}"
+            android:text="multiParam"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clickBindBtn" />
+
+        <TextView
+            android:id="@+id/customConversionTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@{user.age == 0 ? @color/red : @color/white}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/multiParmCb" />
+        <!--通过使用应用命名空间和特性中的变量名称，变量可以从包含的布局传递到被包含布局的绑定-->
+        <include
+            layout="@layout/include_bind"
+            bind:user="@{user}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+    <!--
+        使用可观察对象类型的map进行数据的存储
+        ObservableArrayMap<String, Any>().apply {
+            put("firstName", "Google")
+            put("lastName", "Inc.")
+            put("age", 17)
+        }
+
+        <data>
+        //导入Map类
+            <import type="android.databinding.ObservableMap"/>
+            //创建user变量
+            <variable name="user" type="ObservableMap<String, Object>"/>
+        </data>
+        …
+        <TextView
+        使用map.key的方式获取value
+            android:text="@{user.lastName}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="@{String.valueOf(1 + (Integer)user.age)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+       即时绑定
+            当可变或可观察对象发生更改时，绑定会按照计划在下一帧之前发生更改。但有时必须立即执行绑定。
+            要强制执行，请使用 executePendingBindings() 方法。
+
+    -->

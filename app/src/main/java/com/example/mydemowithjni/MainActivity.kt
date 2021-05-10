@@ -11,13 +11,19 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.mydemowithjni.activity.FragmentActivity
 import com.example.mydemowithjni.activity.LearnActivity
+import com.example.mydemowithjni.databinding.ActivityMainBinding
+import com.example.mydemowithjni.databinding.DataBindingActivity
 import com.example.mydemowithjni.res.ResActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.mydemowithjni.workmanager.WorkActivity
 import java.util.*
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun restroeState(savedInstanceState: Bundle?) {
 
+    }
+
+    override fun initViewBinding(): ActivityMainBinding {
+        return ActivityMainBinding.inflate(layoutInflater)
     }
 
     override fun initData() {
@@ -25,17 +31,21 @@ class MainActivity : BaseActivity() {
         findViewById<TextView>(R.id.sample_text).text = stringFromJNI()
     }
 
-    override fun getLayoutId(): Int = R.layout.activity_main
-
     override fun setListener() {
-        resBtn.setOnClickListener {
+        viewBinding.resBtn.setOnClickListener {
             ResActivity.start(this@MainActivity)
         }
-        activityBtn.setOnClickListener {
+        viewBinding.activityBtn.setOnClickListener {
             LearnActivity.start(this@MainActivity)
         }
-        fragmentBtn.setOnClickListener {
+        viewBinding.fragmentBtn.setOnClickListener {
             FragmentActivity.start(this@MainActivity)
+        }
+        viewBinding.dataBindingBtn.setOnClickListener {
+            DataBindingActivity.start(this@MainActivity)
+        }
+        viewBinding.workManagerBtn.setOnClickListener {
+            WorkActivity.start(this@MainActivity)
         }
     }
 

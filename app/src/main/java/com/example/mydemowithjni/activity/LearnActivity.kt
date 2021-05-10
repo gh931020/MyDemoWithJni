@@ -8,11 +8,11 @@ import android.os.Bundle
 import com.elvishew.xlog.XLog
 import com.example.mydemowithjni.BaseActivity
 import com.example.mydemowithjni.R
-import kotlinx.android.synthetic.main.activity_learn.*
+import com.example.mydemowithjni.databinding.ActivityLearnBinding
 
 const val GAME_STATE_KEY = "game_state_key"
 const val TEXT_VIEW_KEY = "text_view_key"
-class LearnActivity: BaseActivity() {
+class LearnActivity: BaseActivity<ActivityLearnBinding>() {
 
     companion object{
         const val REQUEST_CODE = 1
@@ -53,17 +53,16 @@ class LearnActivity: BaseActivity() {
        // startActivity(sendIntent)
     }
 
-    override fun getLayoutId(): Int =
-        R.layout.activity_learn
+    override fun initViewBinding(): ActivityLearnBinding = ActivityLearnBinding.inflate(layoutInflater)
 
     override fun setListener() {
-        startBtn.setOnClickListener {
+        viewBinding.startBtn.setOnClickListener {
             StartActivity.start(this@LearnActivity)
             // Activity A 的 onPause() 方法执行。
             // Activity B 的 onCreate()、onStart() 和 onResume() 方法依次执行（Activity B 现在具有用户焦点）。
             // 然后，如果 Activity A 在屏幕上不再显示，其 onStop() 方法执行。
         }
-        startForResultBtn.setOnClickListener {
+        viewBinding.startForResultBtn.setOnClickListener {
             StartForResultActivity.startForResult(this@LearnActivity, REQUEST_CODE)
         }
     }
@@ -88,7 +87,7 @@ class LearnActivity: BaseActivity() {
      * The savedInstanceState Bundle is same as the one used in onCreate().
      */
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        saveTv.text = savedInstanceState.getString(GAME_STATE_KEY)
+        viewBinding.saveTv.text = savedInstanceState.getString(GAME_STATE_KEY)
         // 注意：您应始终调用 onRestoreInstanceState() 的父类实现，以便默认实现可以恢复视图层次结构的状态。
         super.onRestoreInstanceState(savedInstanceState)
     }
@@ -103,7 +102,7 @@ class LearnActivity: BaseActivity() {
         // 如需保存大量数据，您应组合使用持久性本地存储、onSaveInstanceState() 方法和 ViewModel 类来保存数据，正如保存界面状态中所述。
         outState.run {
             putString(GAME_STATE_KEY, gameState)
-            putString(TEXT_VIEW_KEY, saveTv.text.toString())
+            putString(TEXT_VIEW_KEY, viewBinding.saveTv.text.toString())
         }
         // call superclass to save any view hierarchy
         super.onSaveInstanceState(outState)

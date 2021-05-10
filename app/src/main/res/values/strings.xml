@@ -1,15 +1,18 @@
 <resources>
-    <string name="app_name">MyDemoWithJni</string>
-    <string name="string_variants_minapi23_64_demo">this is minApi23*64Demo!</string>
-    <string name="menu_item1">item1</string>
-    <string name="menu_group_item1">group_item1</string>
-    <string name="menu_group_item2">group_item2</string>
-    <string name="menu_submenu_title">submenu_title</string>
-    <string name="menu_submenu_title1">submenu_title1</string>
-    <string name="name_activity_learn">Learn Activity</string>
-    <string name="btn_res">应用资源</string>
-    <string name="btn_activity">Activity应用</string>
-    <string name="btn_fragment">Fragment应用</string>
+    <string name="app_name" translatable="false">MyDemoWithJni</string>
+    <string name="string_variants_minapi23_64_demo" translatable="false">this is minApi23*64Demo!</string>
+    <string name="menu_item1" translatable="false">item1</string>
+    <string name="menu_group_item1" translatable="false">group_item1</string>
+    <string name="menu_group_item2" translatable="false">group_item2</string>
+    <string name="menu_submenu_title" translatable="false">submenu_title</string>
+    <string name="menu_submenu_title1" translatable="false">submenu_title1</string>
+    <string name="name_activity_learn" translatable="false">Learn Activity</string>
+    <string name="btn_res" translatable="false">应用资源</string>
+    <string name="btn_activity" translatable="false">Activity应用</string>
+    <string name="btn_fragment" translatable="false">Fragment应用</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="btn_datastore" translatable="false">DataStore应用</string>
+    <string name="btn_databinding" translatable="false">数据绑定</string>
+    <string name="work_completed" translatable="false">work completed</string>
 </resources>

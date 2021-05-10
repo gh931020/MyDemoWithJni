@@ -1,0 +1,75 @@
+ext{
+   android=[
+           compileSdkVersion : 30,
+           minSdkVersion : 21,
+           targetSdkVersion: 30,
+           versionName : "1.0",
+           versionCode : 1
+   ]
+   //统一依赖库管理
+   dependencies = {
+
+   }
+   kotlin_version = "1.4.32"
+
+   /* 必须ext，定义所有project公用参数 */
+
+   ApplicationId = "com.bai.news" //包名
+
+   MinifyEnabled = false //是否混淆
+
+   android = [
+           compileSdkVersion : 30,// 用于编译的SDK版本
+           buildTools : "28.0.2",// 用于Gradle编译项目的工具版本
+           minSdkVersion     : 20,// 最低支持Android版本
+           targetSdkVersion  : 30,// 目标版本
+           versionCode: 1,//版本号
+           versionName: "1.0",//版本名
+           kotlin_version:'1.4.32'
+   ]
+
+   // App dependencies
+   appcompatVersion = "28.0.0"
+   constraintVersion = "1.1.3"
+   junitVersion = "4.12"
+   runnerVersion = "1.0.2"
+   espressoVersion = "3.0.2"
+
+   supportV4Version = "26.1.0"
+   designVersion = "28.0.0"
+
+   //公共的(系统的)
+   roots = [
+           //项目基本的(每个项目需要的)
+           "appcompatV7"               :   "com.android.support:appcompat-v7:${appcompatVersion}",
+           "constraint"                :   "com.android.support.constraint:constraint-layout:${constraintVersion}",
+           "junit"                     :   "junit:junit:${junitVersion}",
+           "runner"                    :   "com.android.support.test:runner:${runnerVersion}",
+           "espresso"                  :   "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+           "appcompatV4"               :   "com.android.support:support-v4:${supportV4Version}",
+           "design"               :   "com.android.support:support-v4:${designVersion}",
+   ]
+
+   //bus总线
+   externalEventBus = 'org.greenrobot:eventbus:3.1.1'
+
+   //第三方框架
+   thirdFrame = [
+           "gson"                      :"com.google.code.gson:gson:2.8.0", //gson解析
+           "glide"                     :"com.github.bumptech.glide:glide:3.7.0", //glide
+           "picasso"                   :"com.squareup.picasso:picasso:2.71828", //picasso
+   ]
+
+   //App需要导入的第三方框架
+   appThirdFrame = [
+           thirdFrame.gson,
+           thirdFrame.glide,
+           thirdFrame.picasso,
+   ]
+
+   //res资源文件
+   resSource = [
+           'src/main/res',
+           'src/main/res-main/home',
+   ]
+}

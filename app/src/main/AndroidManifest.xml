@@ -10,12 +10,13 @@
     <uses-feature
         android:name="android.hardware.sensor.compass"
         android:required="true" />
-
+<!--android:icon="${logo}"
+        android:label="${appName}"-->
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="${logo}"
-        android:label="${appName}"
+        android:logo="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyDemoWithJni">
@@ -53,6 +54,8 @@
                 <action android:name="android.apwidget.action.APPWIDGET_CONFIGURE"/>
             </intent-filter>
         </activity>
+        <activity android:name=".databinding.DataBindingActivity" />
+        <activity android:name=".workmanager.WorkActivity" />
 
         <receiver android:name=".widget.ExampleWidgetProvider">
             <intent-filter>
@@ -63,15 +66,15 @@
                 android:resource="@xml/example_appwidget_info"/>
         </receiver>
 <!-- 此处添加后,应用启动会自动初始化metadata中声明的库,也可以在Application中通过代码初始化-->
-        <provider
-            android:authorities="${applicationId}.androidx-startup"
-            android:name="androidx.startup.InitializationProvider"
-            android:exported="false"
-            tools:node="merge">
-            <meta-data android:name="com.example.mydemowithjni.initializer.WorkManagerInitializer"
-                android:value="androidx.startup"/>
-<!--            tools:node="remove" 可用于在应用运行的时候去除当前标签-->
-        </provider>
+<!--        <provider-->
+<!--            android:authorities="${applicationId}.androidx-startup"-->
+<!--            android:name="androidx.startup.InitializationProvider"-->
+<!--            android:exported="false"-->
+<!--            tools:node="merge">-->
+<!--            <meta-data android:name="com.example.mydemowithjni.initializer.WorkManagerInitializer"-->
+<!--                android:value="androidx.startup"/>-->
+<!--&lt;!&ndash;            tools:node="remove" 可用于在应用运行的时候去除当前标签&ndash;&gt;-->
+<!--        </provider>-->
 
     </application>
 

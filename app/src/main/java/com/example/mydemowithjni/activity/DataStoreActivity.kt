@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import com.example.mydemowithjni.BaseActivity
 import com.example.mydemowithjni.R
+import com.example.mydemowithjni.databinding.ActivityDatastoreBinding
 import com.example.mydemowithjni.proto.settingsDataStore
 import com.example.mydemowithjni.util.dataStore
 import kotlinx.coroutines.flow.Flow
@@ -13,7 +14,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 
-class DataStoreActivity: BaseActivity() {
+class DataStoreActivity: BaseActivity<ActivityDatastoreBinding>() {
 
     lateinit var EXAMPLE_COUNTER: Preferences.Key<Int>
 
@@ -21,7 +22,7 @@ class DataStoreActivity: BaseActivity() {
 
     }
 
-    override fun getLayoutId(): Int = R.layout.activity_datastore
+    override fun initViewBinding(): ActivityDatastoreBinding = ActivityDatastoreBinding.inflate(layoutInflater)
 
     override fun setListener() {
 
