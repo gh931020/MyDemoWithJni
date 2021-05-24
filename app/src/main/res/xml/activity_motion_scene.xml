@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+    <!--包含运动的基本定义
+    motion:constraintSetEnd="@id/end" 运动的终点
+    motion:constraintSetEnd="@id/start" 运动的起点
+    在ConstraintSet中定义
+    -->
+    <Transition
+        motion:constraintSetEnd="@id/end"
+        motion:constraintSetStart="@id/start">
+        <!--控制器: 通过轻触控制运动
+        motion:touchAnchorId="@id/button"  可以滑动并拖动的视图
+        motion:touchAnchorSide="right"     从右侧拖动视图
+        motion:dragDirection="dragRight"   表示拖动的进度方向.当向右拖动时,进度增加
+        -->
+        <OnSwipe
+            motion:touchAnchorId="@id/button"
+            motion:touchAnchorSide="right"
+            motion:dragDirection="dragRight"/>
+    </Transition>
+    <!--定义描述运动的各种限制条件的位置-->
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@id/button"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="8dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="backgroundColor"
+                motion:customColorValue="#D81B60"/>
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end"
+        android:alpha="50"
+        android:visibility="visible"
+        android:elevation="1dp"
+        android:rotation="10"
+        android:translationX="0dp"
+        android:scaleX="1.5">
+        <Constraint android:id="@id/button"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="8dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="backgroundColor"
+                motion:customColorValue="#9999FF"/>
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>

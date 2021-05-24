@@ -12,8 +12,37 @@ import com.elvishew.xlog.printer.file.clean.FileLastModifiedCleanStrategy
 import com.elvishew.xlog.printer.file.naming.DateFileNameGenerator
 import com.example.mydemowithjni.initializer.WorkManagerInitializer
 import com.example.mydemowithjni.util.Constants
+import java.lang.RuntimeException
+import java.util.concurrent.*
+
 const val MAX_TIME = 1000 * 60 * 60 * 24 * 30L
 class MyApplication: Application() {
+    /**
+     * 创建包含四个线程的线程池
+     */
+    val executorService: ExecutorService = Executors.newFixedThreadPool(4)
+    // 配置线程池
+    /*
+     * Gets the number of available cores
+     * (not always the same as the maximum number of cores)
+     */
+    private val NUMBER_OF_CORES = Runtime.getRuntime().availableProcessors()
+
+    /**
+     * Instantiates the queue of Runnables as a LinkedBlockingQueue
+     */
+    private val workQueue: BlockingDeque<Runnable> = LinkedBlockingDeque<Runnable>()
+
+    // Sets the amount of time an idle thread waits before terminating
+    private val KEEP_ALIVE_TIME = 1L
+
+    // Sets the Time Unit to seconds
+    private val KEEP_ALIVE_TIME_UNIT = TimeUnit.SECONDS
+
+    /**
+     * 根据处理器核心总数指定线程池大小,指定保持活跃的时间为1秒,并指定了一个输入队列
+     */
+    private val threadPoolExecutor = ThreadPoolExecutor(NUMBER_OF_CORES, NUMBER_OF_CORES, KEEP_ALIVE_TIME, KEEP_ALIVE_TIME_UNIT, workQueue)
 
     override fun onCreate() {
         super.onCreate()
@@ -59,16 +88,17 @@ class MyApplication: Application() {
 
         // Printer consolePrinter = new ConsolePrinter();             // Printer that print the log to console using System.out
         // Printer consolePrinter = new ConsolePrinter();             // Printer that print the log to console using System.out
-        val filePrinter: Printer = FilePrinter.Builder(Constants.PATH_LOG) // Specify the directory path of log file(s)
-                .fileNameGenerator(DateFileNameGenerator()) // Default: ChangelessFileNameGenerator("log")
-                //.backupStrategy(new NeverBackupStrategy())             // Default: FileSizeBackupStrategy(1024 * 1024)
-                .cleanStrategy(FileLastModifiedCleanStrategy(MAX_TIME)) // Default: NeverCleanStrategy()
-                //.flattener(new MyFlattener())                          // Default: DefaultFlattener
-                .build()
+        // val filePrinter: Printer = FilePrinter.Builder(Constants.PATH_LOG) // Specify the directory path of log file(s)
+        //         .fileNameGenerator(DateFileNameGenerator()) // Default: ChangelessFileNameGenerator("log")
+        //         //.backupStrategy(new NeverBackupStrategy())             // Default: FileSizeBackupStrategy(1024 * 1024)
+        //         .cleanStrategy(FileLastModifiedCleanStrategy(MAX_TIME)) // Default: NeverCleanStrategy()
+        //         //.flattener(new MyFlattener())                          // Default: DefaultFlattener
+        //         .build()
 
         XLog.init( // Initialize XLog
                 config,  // Specify the log configuration, if not specified, will use new LogConfiguration.Builder().build()
-                androidPrinter,
-                filePrinter)
+                androidPrinter)
+            // ,
+            //     filePrinter)
     }
 }

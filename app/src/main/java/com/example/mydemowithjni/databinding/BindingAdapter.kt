@@ -20,15 +20,15 @@ object BindingAdapter {
      * 第一个参数用于确定与特性关联的视图类型
      * 第二个参数用于确定在给定特性的绑定表达式中接受的类型。
      */
-    @BindingAdapter("android:paddingLeft")
-    @JvmStatic fun setPaddingLeft(view: View, padding: Int) {
-        view.setPadding(
-            padding,
-            view.paddingTop,
-            view.paddingRight,
-            view.paddingBottom
-        )
-    }
+    // @BindingAdapter("android:paddingLeft")
+    // @JvmStatic fun setPaddingLeft(view: View, padding: Int) {
+    //     view.setPadding(
+    //         padding,
+    //         view.paddingTop,
+    //         view.paddingRight,
+    //         view.paddingBottom
+    //     )
+    // }
 
     /**
      * 这种方式,只有同时设置imageUrl和error时,才会调用loadImage方法
@@ -172,16 +172,16 @@ object BindingAdapter {
      * @param value Long
      * @return String
      */
-    @InverseMethod("stringToDate")
-    @JvmStatic fun dateToString(view: EditText, oldValue: Long, value: Long): String{
-        // Converts long to String
-        return "string"
-    }
-
-    fun stringToDate(view: EditText, oldValue: String, value: String): Long{
-        // Converts String to Long
-        return 0L
-    }
+    // @InverseMethod("stringToDate")
+    // @JvmStatic fun dateToString(view: EditText, oldValue: Long, value: Long): String{
+    //     // Converts long to String
+    //     return "string"
+    // }
+    //
+    // fun stringToDate(view: EditText, oldValue: String, value: String): Long{
+    //     // Converts String to Long
+    //     return 0L
+    // }
 }
 
 // Translation from provided interfaces in Java:

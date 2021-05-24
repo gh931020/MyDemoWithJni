@@ -6,7 +6,12 @@
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 声明设备兼容性 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.SET_ALARM"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.SET_ALARM"/>
+        </intent>
+    </queries>
     <uses-feature
         android:name="android.hardware.sensor.compass"
         android:required="true" />
@@ -56,6 +61,11 @@
         </activity>
         <activity android:name=".databinding.DataBindingActivity" />
         <activity android:name=".workmanager.WorkActivity" />
+        <activity android:name=".viewpager2.ViewPage2Activity" />
+        <activity android:name=".intent.IntentActivity" />
+        <activity android:name=".constraint.MotionLayoutActivity" />
+        <activity android:name=".constraint.ConstraintActivity" />
+        <activity android:name=".notification.NotificationActivity" />
 
         <receiver android:name=".widget.ExampleWidgetProvider">
             <intent-filter>
@@ -75,6 +85,13 @@
 <!--                android:value="androidx.startup"/>-->
 <!--&lt;!&ndash;            tools:node="remove" 可用于在应用运行的时候去除当前标签&ndash;&gt;-->
 <!--        </provider>-->
+
+<!--    在应用的清单中声明工作器的前台服务类型。 需要位置信息和麦克风访问权限   -->
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="location|microphone"
+            tools:node="merge" />
+        <service android:name=".service.LocalService" />
 
     </application>
 

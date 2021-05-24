@@ -10,7 +10,6 @@ import androidx.fragment.app.commit
 import androidx.transition.Transition
 import androidx.transition.TransitionInflater
 import com.example.mydemowithjni.R
-import kotlinx.android.synthetic.main.fragment_example.*
 
 class ExampleFragment : Fragment(R.layout.fragment_example) {
    // lateinit var exitTransition:Transition

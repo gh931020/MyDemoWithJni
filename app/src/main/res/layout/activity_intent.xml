@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".intent.IntentActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/alarmBtn"
+            style="@style/style_btn_intent"
+            android:onClick="createAlarm"
+            android:text="闹钟" />
+
+        <Button
+            android:id="@+id/timerBtn"
+            style="@style/style_btn_intent"
+            android:onClick="createTimer"
+            android:text="定时器" />
+
+        <Button
+            android:id="@+id/addEventBtn"
+            style="@style/style_btn_intent"
+            android:onClick="addEvent"
+            android:text="添加日历事件" />
+
+        <Button
+            android:id="@+id/capturePhotoBtn"
+            style="@style/style_btn_intent"
+            android:onClick="capturePhoto"
+            android:text="获取拍摄照片" />
+
+        <Button
+            android:id="@+id/selectContactBtn"
+            style="@style/style_btn_intent"
+            android:onClick="selectContact"
+            android:text="获取联系人信息" />
+
+        <Button
+            android:id="@+id/viewContactBtn"
+            style="@style/style_btn_intent"
+            android:onClick="viewContact"
+            android:text="查看联系人信息" />
+
+        <Button
+            android:id="@+id/editContactBtn"
+            style="@style/style_btn_intent"
+            android:onClick="editContact"
+            android:text="编辑现有联系人" />
+
+        <Button
+            android:id="@+id/insertContactBtn"
+            style="@style/style_btn_intent"
+            android:onClick="insertContact"
+            android:text="插入联系人" />
+
+        <Button
+            android:id="@+id/composeEmailBtn"
+            style="@style/style_btn_intent"
+            android:onClick="composeEmail"
+            android:text="发送邮件" />
+
+        <Button
+            android:id="@+id/selectImageBtn"
+            style="@style/style_btn_intent"
+            android:onClick="selectImage"
+            android:text="选择图片" />
+
+        <Button
+            android:id="@+id/openWifiSettingsBtn"
+            style="@style/style_btn_intent"
+            android:onClick="openWifiSettings"
+            android:text="打开设置页面" />
+
+        <Button
+            android:id="@+id/openWebPageBtn"
+            style="@style/style_btn_intent"
+            android:onClick="openWebPage"
+            android:text="打开网页" />
+
+    </LinearLayout>
+
+</ScrollView>

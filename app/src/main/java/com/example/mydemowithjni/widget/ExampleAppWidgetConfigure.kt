@@ -4,10 +4,10 @@ import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.RemoteViews
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mydemowithjni.R
-import kotlinx.android.synthetic.main.appwidget_configure.*
 
 class ExampleAppWidgetConfigure : AppCompatActivity() {
     var appWidgetId = 0
@@ -18,9 +18,9 @@ class ExampleAppWidgetConfigure : AppCompatActivity() {
         // out of the widget placement if they press the back button.
         setResult(RESULT_CANCELED);
         // Set the view layout resource to use.
-        setContentView(R.layout.appwidget_configure);
+        setContentView(R.layout.appwidget_configure)
 
-        configureCompleteBtn.setOnClickListener {
+        findViewById<Button>(R.id.configureCompleteBtn).setOnClickListener {
             // 1.获取当前启动Activity的widgetId
             appWidgetId = intent?.extras?.getInt(
                 AppWidgetManager.EXTRA_APPWIDGET_ID,

@@ -11,9 +11,13 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.mydemowithjni.activity.FragmentActivity
 import com.example.mydemowithjni.activity.LearnActivity
+import com.example.mydemowithjni.constraint.ConstraintActivity
 import com.example.mydemowithjni.databinding.ActivityMainBinding
 import com.example.mydemowithjni.databinding.DataBindingActivity
+import com.example.mydemowithjni.intent.IntentActivity
+import com.example.mydemowithjni.notification.NotificationActivity
 import com.example.mydemowithjni.res.ResActivity
+import com.example.mydemowithjni.viewpager2.ViewPage2Activity
 import com.example.mydemowithjni.workmanager.WorkActivity
 import java.util.*
 
@@ -32,20 +36,35 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun setListener() {
-        viewBinding.resBtn.setOnClickListener {
-            ResActivity.start(this@MainActivity)
-        }
-        viewBinding.activityBtn.setOnClickListener {
-            LearnActivity.start(this@MainActivity)
-        }
-        viewBinding.fragmentBtn.setOnClickListener {
-            FragmentActivity.start(this@MainActivity)
-        }
-        viewBinding.dataBindingBtn.setOnClickListener {
-            DataBindingActivity.start(this@MainActivity)
-        }
-        viewBinding.workManagerBtn.setOnClickListener {
-            WorkActivity.start(this@MainActivity)
+
+        viewBinding.apply {
+            resBtn.setOnClickListener {
+                ResActivity.start(this@MainActivity)
+            }
+            activityBtn.setOnClickListener {
+                LearnActivity.start(this@MainActivity)
+            }
+            fragmentBtn.setOnClickListener {
+                FragmentActivity.start(this@MainActivity)
+            }
+            dataBindingBtn.setOnClickListener {
+                DataBindingActivity.start(this@MainActivity)
+            }
+            workManagerBtn.setOnClickListener {
+                WorkActivity.start(this@MainActivity)
+            }
+            viewpage2Btn.setOnClickListener {
+                ViewPage2Activity.start(this@MainActivity)
+            }
+            intentBtn.setOnClickListener {
+                IntentActivity.start(this@MainActivity)
+            }
+            constraintBtn.setOnClickListener {
+                ConstraintActivity.start(this@MainActivity)
+            }
+            notificationBtn.setOnClickListener {
+                NotificationActivity.start(this@MainActivity)
+            }
         }
     }
 

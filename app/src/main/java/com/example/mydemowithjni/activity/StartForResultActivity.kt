@@ -5,10 +5,11 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mydemowithjni.BaseActivity
 import com.example.mydemowithjni.R
-import kotlinx.android.synthetic.main.activity_start_for_result.*
+import com.example.mydemowithjni.databinding.ActivityStartForResultBinding
 
-class StartForResultActivity : AppCompatActivity() {
+class StartForResultActivity : BaseActivity<ActivityStartForResultBinding>() {
 
     companion object{
         @JvmStatic
@@ -23,10 +24,26 @@ class StartForResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_for_result)
 
-        resultBackBtn.setOnClickListener {
+        viewBinding.resultBackBtn.setOnClickListener {
             // 设置回调
             setResult(Activity.RESULT_OK, Intent().putExtra(LearnActivity.START_FOR_RESULT_KEY, "activity_start_for_result"))
             finish()
         }
+    }
+
+    override fun initViewBinding(): ActivityStartForResultBinding {
+        return ActivityStartForResultBinding.inflate(layoutInflater)
+    }
+
+    override fun restroeState(savedInstanceState: Bundle?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun setListener() {
+        TODO("Not yet implemented")
+    }
+
+    override fun initData() {
+        TODO("Not yet implemented")
     }
 }

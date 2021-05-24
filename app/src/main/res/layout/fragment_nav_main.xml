@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".navigation.fragment.MainFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_fragment_nav_main"
+        android:layout_marginTop="50dp"/>
+    <Button
+        android:id="@+id/transFragBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="view transfrag"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/chooseRecBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="choose rec frag"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/balanceBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="view balance"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

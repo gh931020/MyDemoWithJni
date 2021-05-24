@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_res"
             android:textAllCaps="false" />
+
         <Button
             android:id="@+id/activityBtn"
             android:layout_width="match_parent"
@@ -37,23 +38,54 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_fragment"
             android:textAllCaps="false" />
+
         <Button
             android:id="@+id/dataStoreBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_datastore"
             android:textAllCaps="false" />
+
         <Button
             android:id="@+id/dataBindingBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_databinding"
             android:textAllCaps="false" />
+
         <Button
             android:id="@+id/workManagerBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="WorkManager应用"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/viewpage2Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ViewPage2应用"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/intentBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Intent应用"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/constraintBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="约束布局"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/notificationBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="notification通知"
             android:textAllCaps="false" />
     </LinearLayout>
 

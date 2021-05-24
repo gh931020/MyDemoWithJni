@@ -4,10 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mydemowithjni.BaseActivity
 import com.example.mydemowithjni.R
-import kotlinx.android.synthetic.main.activity_start.*
+import com.example.mydemowithjni.databinding.ActivityStartBinding
 
-class StartActivity: AppCompatActivity() {
+class StartActivity: BaseActivity<ActivityStartBinding>() {
 
     companion object{
         @JvmStatic
@@ -23,8 +24,24 @@ class StartActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
-        startBackBtn.setOnClickListener {
+        viewBinding.startBackBtn.setOnClickListener {
             this.finish()
         }
+    }
+
+    override fun initViewBinding(): ActivityStartBinding {
+        return ActivityStartBinding.inflate(layoutInflater)
+    }
+
+    override fun restroeState(savedInstanceState: Bundle?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun setListener() {
+        TODO("Not yet implemented")
+    }
+
+    override fun initData() {
+        TODO("Not yet implemented")
     }
 }

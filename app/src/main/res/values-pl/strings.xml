@@ -5,4 +5,5 @@
         <item quantity="few">Znaleziono %d piosenki.</item>
         <item quantity="other">Znaleziono %d piosenek.</item>
     </plurals>
+    <string name="title_fragment_nav_main">Navigation Main Fragment</string>
 </resources>

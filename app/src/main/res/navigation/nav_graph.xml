@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+    <!--
+        <action
+        android:id="@+id/action_c_to_a"
+        app:destination="@id/a"
+        app:popUpTo="@+id/a"
+        app:popUpToInclusive="true"/>
+
+        在到达目的地 C 之后，返回堆栈包含每个目的地（A、B 和 C）的一个实例。
+        当返回到目的地 A 时，我们也 popUpTo A，也就是说我们会在导航过程中从堆栈中移除 B 和 C。
+        利用 app:popUpToInclusive="true"，我们还会将第一个 A 从堆栈上弹出，从而有效地清除它。
+        请注意，如果您不使用 app:popUpToInclusive，则返回堆栈会包含目的地 A 的两个实例。
+    -->
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.mydemowithjni.navigation.fragment.MainFragment"
+        android:label="fragment_nav_main"
+        tools:layout="@layout/fragment_nav_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_viewTransFragment"
+            app:destination="@id/viewTransFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_mainFragment_to_chooseRecFragment"
+            app:destination="@id/navigation" />
+        <action
+            android:id="@+id/action_mainFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="com.example.mydemowithjni.navigation.fragment.ViewBalanceFragment"
+        android:label="ViewBalanceFragment" />
+    <fragment
+        android:id="@+id/viewTransFragment"
+        android:name="com.example.mydemowithjni.navigation.fragment.ViewTransFragment"
+        android:label="ViewTransFragment" >
+        <argument
+            android:name="fromName"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="mainFrag" />
+        <argument
+            android:name="otherArg"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    <!--  如果参数类型支持 null 值，您可以使用 android:defaultValue="@null" 声明默认值 null。  -->
+    </fragment>
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/chooseRecFragment">
+        <fragment
+            android:id="@+id/chooseRecFragment"
+            android:name="com.example.mydemowithjni.navigation.fragment.ChooseRecFragment"
+            android:label="ChooseRecFragment">
+            <action
+                android:id="@+id/action_chooseRecFragment_to_specifyAmountFragment"
+                app:destination="@id/specifyAmountFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/specifyAmountFragment"
+            android:name="com.example.mydemowithjni.navigation.fragment.SpecifyAmountFragment"
+            android:label="SpecifyAmountFragment">
+            <action
+                android:id="@+id/action_specifyAmountFragment_to_confirmationFragment"
+                app:destination="@id/confirmationFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/confirmationFragment"
+            android:name="com.example.mydemowithjni.navigation.fragment.ConfirmationFragment"
+            android:label="ConfirmationFragment" />
+    </navigation>
+</navigation>

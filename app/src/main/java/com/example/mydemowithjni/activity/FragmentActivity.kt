@@ -8,11 +8,10 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.example.mydemowithjni.R
+import com.example.mydemowithjni.databinding.ActivityFragmentBinding
 import com.example.mydemowithjni.fragment.Example2Fragment
 import com.example.mydemowithjni.fragment.ExampleFragment
 import com.example.mydemowithjni.fragment.TransitionFragment
-import kotlinx.android.synthetic.main.activity_fragment.*
-import kotlinx.android.synthetic.main.fragment_example.*
 
 class FragmentActivity : AppCompatActivity(R.layout.activity_fragment) {
     companion object{
@@ -23,8 +22,12 @@ class FragmentActivity : AppCompatActivity(R.layout.activity_fragment) {
             context.startActivity(starter)
         }
     }
+    val viewBinding by lazy {
+        ActivityFragmentBinding.inflate(layoutInflater)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         // This is to ensure that the fragment is added only once, when the activity is first created.
         if (savedInstanceState== null) {
             val bundle = bundleOf("some_int" to 0)
@@ -62,7 +65,7 @@ class FragmentActivity : AppCompatActivity(R.layout.activity_fragment) {
         // 使用 findFragmentByTag() 获取引用。在 FragmentTransaction 中的 add() 或 replace() 操作期间分配标记。
         // val exampleFragmentByTag = supportFragmentManager.findFragmentByTag("tag") as ExampleFragment
 
-        tabRg.setOnCheckedChangeListener { group, checkedId ->
+        viewBinding.tabRg.setOnCheckedChangeListener { group, checkedId ->
             showFragment(checkedId)
         }
 
@@ -93,7 +96,7 @@ class FragmentActivity : AppCompatActivity(R.layout.activity_fragment) {
                             R.anim.slide_out
                         )
 
-                        addSharedElement(anim1Iv, "anim1_iv")
+                        // addSharedElement(anim1Iv, "anim1_iv")
                         supportFragmentManager.findFragmentByTag("tag")?.let { hide(it) }
                         if (supportFragmentManager.findFragmentByTag("tag2") == null) {
                             add<Example2Fragment>(R.id.fragContainer, tag = "tag2")

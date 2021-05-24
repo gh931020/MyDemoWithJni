@@ -15,4 +15,8 @@
     <string name="btn_datastore" translatable="false">DataStore应用</string>
     <string name="btn_databinding" translatable="false">数据绑定</string>
     <string name="work_completed" translatable="false">work completed</string>
+    <string name="notification_channel_id">work_channel</string>
+    <string name="notification_title">work_title</string>
+    <string name="cancle_download">download cancle</string>
+    <string name="title_fragment_nav_main">Navigation Main Fragment</string>
 </resources>
