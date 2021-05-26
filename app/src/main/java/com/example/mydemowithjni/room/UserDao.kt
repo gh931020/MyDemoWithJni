@@ -1,7 +1,14 @@
 package com.example.mydemowithjni.room
 
 import androidx.room.*
+import java.util.*
 
+/**
+ * Dao类既可以是接口,又可以是抽象类.
+ * 如果是抽象类,则该Dao可以选择有一个以RoomDatabase为唯一参数的构造函数.
+ * 除非已对构造器调用allowMainThreadQueries()否则Room不支持在主线程上访问数据库.
+ *
+ */
 @Dao
 interface UserDao {
     @Query("SELECT * FROM myuser")
@@ -33,7 +40,7 @@ interface UserDao {
      * 如果参数是数组或集合，则应返回 long[] 或 List<Long>
      * @param users Array<out User>
      */
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg users: User)
 
     /**
@@ -49,4 +56,32 @@ interface UserDao {
      */
     @Delete
     fun delete(user: User)
+
+    /**
+     * 用于返回将父实体与子实体配对的数据类的所有实例。
+     * 该方法需要 Room 运行两次查询，因此应向该方法添加 @Transaction 注释，以确保整个操作以原子方式执行。
+     * @return List<UserAndLibrary>
+     */
+    @Transaction
+    @Query("SELECT * FROM myuser")
+    fun getUsersAndLibraries(): List<UserAndLibrary>
+
+    @Transaction
+    @Query("SELECT * FROM myuser")
+    fun getUsersAndPlaylists(): List<UserAndPlaylists>
+
+    @Transaction
+    @Query("SELECT * FROM playlist")
+    fun getPlaylistWithSongs(): List<PlaylistWithSongs>
+
+    @Transaction
+    @Query("SELECT * FROM song")
+    fun getSongsWithPlaylists(): List<SongWithPlaylists>
+
+    @Transaction
+    @Query("SELECT * FROM myuser")
+    fun getUsersWithPlaylistsAndSongs(): List<UserWithPlaylistsAndSongs>
+
+    @Query("SELECT * FROM myuser WHERE birthday BETWEEN :from AND :to")
+    fun findUsersBornBetweenDates(from: Date, to: Date): List<User>
 }

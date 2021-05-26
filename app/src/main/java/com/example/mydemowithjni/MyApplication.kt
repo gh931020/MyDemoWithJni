@@ -12,10 +12,17 @@ import com.elvishew.xlog.printer.file.clean.FileLastModifiedCleanStrategy
 import com.elvishew.xlog.printer.file.naming.DateFileNameGenerator
 import com.example.mydemowithjni.initializer.WorkManagerInitializer
 import com.example.mydemowithjni.util.Constants
+import dagger.hilt.android.HiltAndroidApp
 import java.lang.RuntimeException
 import java.util.concurrent.*
 
 const val MAX_TIME = 1000 * 60 * 60 * 24 * 30L
+
+/**
+ * 所有使用 Hilt 的应用都必须包含一个带有 @HiltAndroidApp 注释的 Application 类。
+ * @HiltAndroidApp 会触发 Hilt 的代码生成操作，生成的代码包括应用的一个基类，该基类充当应用级依赖项容器。
+ */
+@HiltAndroidApp
 class MyApplication: Application() {
     /**
      * 创建包含四个线程的线程池

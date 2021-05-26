@@ -21,11 +21,13 @@ abstract class BaseActivity<T: ViewBinding>: AppCompatActivity() {
 
     abstract fun initViewBinding(): T
 
-    abstract fun restroeState(savedInstanceState: Bundle?)
+    open fun restroeState(savedInstanceState: Bundle?){
 
-    abstract fun setListener()
+    }
 
-    abstract fun initData()
+    open fun setListener(){}
+
+    open fun initData(){}
 
     override fun onStart() {
         super.onStart()
